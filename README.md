@@ -60,13 +60,18 @@ python ./scripts/vertical_to_horizontal_text.py --input ./input/sample.png --out
 ## ファイル構成例
 
 ```
-project_root/
+.
 ├── input/
 │   └── sample.png
 ├── output/
 │   └── sample.txt
 ├── scripts/
 │   └──vertical_to_horizontal_text.py
+├── .gitignore
+├── LICENSE
+├── README.md(このファイル)
+└── requirements.txt
+
 ```
 
 ## ライセンス
