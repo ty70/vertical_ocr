@@ -39,6 +39,8 @@ sudo wget https://github.com/tesseract-ocr/tessdata/raw/main/jpn_vert.traineddat
 確認
 ```bash
 tensseract --list-langs
+```
+```
 List of available languages (4):
 eng
 jpn
