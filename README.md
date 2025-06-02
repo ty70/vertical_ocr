@@ -1,63 +1,66 @@
 # vertical-ocr
 
-このプロジェクトは、縦書きの日本語テキストを含む画像から文字を抽出し、横書きのテキストに変換して保存する Python スクリプトです。
+This project is a Python script that extracts characters from images containing vertically written Japanese text and converts it into horizontal text for saving.
 
-## 特徴
+## Features
 
-* 縦書きテキストの日本語OCR対応
-* 出力はテキストファイル形式（.txt）
-* コマンドライン引数による柔軟な入力・出力設定
+* OCR support for vertically written Japanese text
+* Output in text file format (.txt)
+* Flexible input/output configuration via command-line arguments
 
-## 使用方法
+## Usage
 
-### 前提条件
+### Prerequisites
 
-* Python 3.7以降
-* 以下のライブラリが必要です：
+* Python 3.7 or higher
+* The following libraries are required:
 
   ```bash
   pip install pytesseract opencv-python
   ```
 
-### Tesseract OCR のインストール
+### Installing Tesseract OCR
 
 ```bash
 sudo apt update
 sudo apt install tesseract-ocr tesseract-ocr-jpn
 ```
 
-※ `tesseract-ocr-jpn` は日本語認識用の言語データです。
+Note: `tesseract-ocr-jpn` provides the language data for Japanese recognition.
 
-### Tesseract 追加の言語データファイルのインストール
+### Installing Additional Tesseract Language Data
 
-* jpn_vert.trainedataをインストールしていない場合、以下の手順でインストールを行ってください
+If `jpn_vert.traineddata` is not installed, you can add it as follows:
+
 ```bash
 cd /usr/share/tesseract-ocr/4.00/tessdata/
 sudo wget https://github.com/tesseract-ocr/tessdata/raw/main/jpn_vert.traineddata
 ```
 
-確認
+To confirm installation:
+
 ```bash
-tensseract --list-langs
+tesseract --list-langs
 ```
+
 ```
 List of available languages (4):
 eng
 jpn
-jpn_vert ← あればOK
+jpn_vert ← OK if listed
 osd
 ```
 
-### 実行方法
+### Execution Example
 
 ```bash
 python ./scripts/vertical_to_horizontal_text.py --input ./input/sample.png --output ./output/sample.txt
 ```
 
-* `--input`：OCR処理を行う画像ファイル（縦書き）のパス
-* `--output`：出力される横書きテキストファイルのパス
+* `--input`: Path to the image file (vertically written) for OCR processing
+* `--output`: Path to the output horizontal text file
 
-## ファイル構成例
+## Example File Structure
 
 ```
 .
@@ -66,18 +69,18 @@ python ./scripts/vertical_to_horizontal_text.py --input ./input/sample.png --out
 ├── output/
 │   └── sample.txt
 ├── scripts/
-│   └──vertical_to_horizontal_text.py
+│   └── vertical_to_horizontal_text.py
 ├── .gitignore
 ├── LICENSE
-├── README.md(このファイル)
+├── README_ja.md # Japanese version
+├── README.md    # this file
 └── requirements.txt
-
 ```
 
-## ライセンス
+## License
 
-このプロジェクトは [MITライセンス](./LICENSE) の下で公開されています。
+This project is released under the [MIT License](./LICENSE).
 
 ---
 
-ご質問や機能追加のご要望があれば、ぜひ Issue を登録してください。
+If you have any questions or feature requests, please feel free to open an issue.
